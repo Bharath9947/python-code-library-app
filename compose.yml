@@ -1,7 +1,7 @@
 ---
 services:
   db:
-    image: shaikmustafa/arshad:db
+    image: shivvabharath/python-project:db
     deploy:
       replicas: 1
     ports:
@@ -14,7 +14,7 @@ services:
     deploy:
       replicas: 1
     ports:
-      - "5001:5001"
+      - "1111:5001"
     networks:
       - mynetwork
     depends_on:
@@ -22,32 +22,33 @@ services:
     
 
   book_service:
-    image: shaikmustafa/arshad:book
+    image: shivvabharath/python-project:book
     deploy:
       replicas: 1
     ports:
-      - "5002:5002"
+      - "1112:5002"
     networks:
       - mynetwork
     depends_on:
       - db
+      
   borrow_service:
-    image: shaikmustafa/arshad:borrow
+    image: shivvabharath/python-project:borrow
     deploy:
       replicas: 1
     ports:
-      - "5003:5003"
+      - "1113:5003"
     networks:
       - mynetwork
     depends_on:
       - db
 
   frontend:
-    image: shaikmustafa/arshad:frontend
+    image: shivvabharath/python-project:app
     deploy:
       replicas: 1
     ports:
-      - "5000:5000"
+      - "1114:5000"
     networks:
       - mynetwork
     depends_on:
