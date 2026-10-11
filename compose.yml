@@ -10,7 +10,7 @@ services:
       - mynetwork
 
   auth_service:
-    image: shaikmustafa/arshad:auth
+    image: shivvabharath/python-project:auth
     deploy:
       replicas: 1
     ports:
